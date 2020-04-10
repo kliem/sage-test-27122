@@ -39,6 +39,13 @@ jobs:
       LOGS_ARTIFACT_NAME: logs-commit-${{ github.sha }}-tox-docker-${{ matrix.tox_system_factor }}-${{ matrix.tox_packages_factor }}
     steps:
       - uses: actions/checkout@v2
+      - name: free disk space
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
       - name: Install test prerequisites
         run: |
           sudo DEBIAN_FRONTEND=noninteractive apt-get update
