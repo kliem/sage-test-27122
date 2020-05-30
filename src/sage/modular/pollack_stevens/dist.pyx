@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+#
+# distutils: libraries = gmp zn_poly
+
 """
 `p`-adic distributions spaces
 
