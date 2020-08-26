@@ -19,4 +19,5 @@ python3    # system python for bootstrapping the build
 gnutar
 bc
 gcc
+gfortran
 bash
